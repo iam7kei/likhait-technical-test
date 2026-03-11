@@ -47,7 +47,7 @@ export function useCategoryForm({ initialData, onSubmit }: UseCategoryFormProps)
 
         setIsSubmitting(true);
         try {
-            await onSubmit(formData);
+            await onSubmit({ name: formData.name.trim() });
             // Reset form on success
             setFormData({
                 name: "",
@@ -55,6 +55,7 @@ export function useCategoryForm({ initialData, onSubmit }: UseCategoryFormProps)
             setErrors({});
         } catch (error) {
             console.error("Form submission error:", error);
+            setErrors({ name: "Failed to save category. Please try again." });
         } finally {
             setIsSubmitting(false);
         }
