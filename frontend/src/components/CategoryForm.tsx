@@ -37,9 +37,9 @@ export function CategoryForm({ initialData, onSubmit, onCancel, submitLabel = "A
         <form onSubmit={handleSubmit} style={formStyle}>
 
             <TextField
-                label="Description"
+                label="Category name"
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter category name"
                 value={formData.name}
                 onChange={(e) => handleChange("name", e.target.value)}
                 error={errors.name}
