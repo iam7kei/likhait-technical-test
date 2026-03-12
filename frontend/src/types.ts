@@ -3,42 +3,59 @@
  */
 
 export interface Expense {
-  id: number;
-  amount: number;
-  description: string;
-  category: string;
-  date: string;
-  created_at: string;
-  updated_at: string;
+    id: number;
+    amount: number;
+    description: string;
+    category: string;
+    date: string;
+    created_at: string;
+    updated_at: string;
 }
 
 export interface ExpenseFormData {
-  amount: string;
-  description: string;
-  category: string;
-  date: string;
+    amount: string;
+    description: string;
+    category: string;
+    date: string;
 }
 
 export interface MonthlySummary {
-  totalExpenses: number;
-  categoryBreakdown: CategoryBreakdown[];
-  topCategories: TopCategory[];
+    totalExpenses: number;
+    categoryBreakdown: CategoryBreakdown[];
+    topCategories: TopCategory[];
+}
+
+export interface Category {
+    id: number;
+    name: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface CategoryFormData {
+    name: string
 }
 
 export interface CategoryBreakdown {
-  category: string;
-  total: number;
-  percentage: number;
+    category: string;
+    total: number;
+    percentage: number;
 }
 
 export interface TopCategory {
-  category: string;
-  total: number;
-  count: number;
+    category: string;
+    total: number;
+    count: number;
 }
 
 export interface DayExpenses {
-  day: number;
-  expenses: Expense[];
-  total: number;
+    day: number;
+    expenses: Expense[];
+    total: number;
+}
+
+export interface SelectBoxOptionsType {
+    value: string;
+    label: string;
+    isAction?: boolean;
 }
