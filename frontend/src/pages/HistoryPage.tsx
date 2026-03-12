@@ -96,6 +96,7 @@ const HistoryPage: React.FC = () => {
         try {
             await createExpense(data);
             setIsModalOpen(false);
+            setInitialExpenseData({})
             fetchExpenses();
         } catch (error) {
             console.error("Error creating expense:", error);
