@@ -21,7 +21,7 @@ class Api::ExpensesController < ApplicationController
     if expense.save
       render json: format_expense(expense), status: :created
     else
-      render json: { errors: expense.errors.full_messages }, status: :unprocessable_entity
+      render json: { full_message: expense.errors.full_messages, errors: format_errors(expense) }, status: :unprocessable_entity
     end
   end
 
@@ -57,5 +57,11 @@ class Api::ExpensesController < ApplicationController
       created_at: expense.created_at,
       updated_at: expense.updated_at
     }
+  end
+
+  def format_errors(expense)
+    expense.errors.map do |error|
+      { field: error.attribute.to_s, message: error.message }
+    end
   end
 end
